@@ -7,7 +7,7 @@ import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 import { ForumComponent } from './forum/forum.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/forum', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },

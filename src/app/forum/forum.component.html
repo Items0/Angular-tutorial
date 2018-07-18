@@ -1,3 +1,20 @@
-<p>
-  forum works!
-</p>
+<!--
+<h3>FORUM</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let post of posts" class="col-1-4" routerLink="/detail/{{hero.id}}">
+    <div class="module hero">
+      <h4>{{post.title}}</h4>
+      <h4>{{post.body}}</h4>
+    </div>
+  </a>
+</div>
+
+-->
+
+<h3>FORUM</h3>
+  <div *ngFor="let post of posts">
+      <h2>#{{post.id}} {{post.title | titlecase}}</h2>
+      <h3>{{post.body}}</h3>
+      <button id="btn" (click)="displayComments(post.id)">Show comments </button>
+      <p *ngFor="let comment of comments">{{comment.body}}</p>
+  </div>

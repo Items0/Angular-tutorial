@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Post } from '../post';
+import { JsonphService } from '../jsonph.service';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
