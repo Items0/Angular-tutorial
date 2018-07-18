@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Comm } from './comm'; 
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -34,11 +36,29 @@ export class JsonphService {
   }
 
   /** GET comments for post from the server */
-  getComments (postID:number): Observable<Comment[]> {
-    return this.http.get<Comment[]>(this.jsonURL + "posts/" + postID + "/comments/")
+  getComms (postID:number): Observable<Comm[]> {
+    return this.http.get<Comm[]>(this.jsonURL + "posts/" + postID + "/comments/")
     .pipe(
-      tap(comments => this.log('fetched comments')),
-      catchError(this.handleError('getComments', []))
+      tap(comments => {
+        this.log('fetched comments');
+      }),
+      catchError(this.handleError('getComms', []))
+    );
+  }
+
+   /** DELETE: delete the post from the server */
+   deletePost (postID:number): Observable<Post> {
+    return this.http.delete<Post>(this.jsonURL + "posts/" + postID, httpOptions).pipe(
+      tap(_ => this.log(`deleted post id=${postID}`)),
+      catchError(this.handleError<Post>('deletePost'))
+    );
+  }
+
+   /** DELETE: delete the comment from the server */
+   deleteComm (commID:number): Observable<Comm> {
+    return this.http.delete<Comm>(this.jsonURL + "comments/" + commID, httpOptions).pipe(
+      tap(_ => this.log(`deleted comment id=${commID}`)),
+      catchError(this.handleError<Comm>('deleteComment'))
     );
   }
 

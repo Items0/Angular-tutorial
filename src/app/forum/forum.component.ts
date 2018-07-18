@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Post } from '../post';
+import { Comm } from '../comm';
+
 import { JsonphService } from '../jsonph.service';
 
 @Component({
@@ -10,19 +13,11 @@ import { JsonphService } from '../jsonph.service';
 
 export class ForumComponent implements OnInit {
   posts: Post[] = [];
-  comments: Comment[] = [];
+  //comments: Comm[] = [];
   constructor(private jsonphService: JsonphService) { }
 
   ngOnInit() {
     this.getPosts();
-
-    var x = document.getElementById("btn").innerText;
-        if (x=="Show comments") {
-            document.getElementById("btn").innerText  = "Hide comments";
-        }
-        else {
-            document.getElementById("btn").innerText  = "Show comments";
-        }
   }
 
   getPosts(): void {
@@ -30,11 +25,5 @@ export class ForumComponent implements OnInit {
       //.subscribe(posts => this.posts = posts.slice(1, 5));
       .subscribe(posts => this.posts = posts);
   }
-
-  displayComments(postID: number) {
-    this.jsonphService.getComments(postID)
-    .subscribe(comments => this.comments = comments)
-  }
-
 
 }

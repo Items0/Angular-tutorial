@@ -12,9 +12,7 @@
 -->
 
 <h3>FORUM</h3>
-  <div *ngFor="let post of posts">
-      <h2>#{{post.id}} {{post.title | titlecase}}</h2>
-      <h3>{{post.body}}</h3>
-      <button id="btn" (click)="displayComments(post.id)">Show comments </button>
-      <p *ngFor="let comment of comments">{{comment.body}}</p>
-  </div>
+<app-post-search></app-post-search>
+<div *ngFor="let itPost of posts">
+  <app-post [post]="itPost"></app-post>
+</div>

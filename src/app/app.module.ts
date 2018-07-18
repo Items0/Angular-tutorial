@@ -7,7 +7,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -17,7 +17,8 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 import { ForumComponent } from './forum/forum.component';
 import { PostComponent } from './post/post.component';
-import { CommentComponent } from './comment/comment.component';
+import { CommComponent } from './comm/comm.component';
+import { PostSearchComponent } from './post-search/post-search.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CommentComponent } from './comment/comment.component';
     HeroSearchComponent,
     ForumComponent,
     PostComponent,
-    CommentComponent
+    CommComponent,
+    PostSearchComponent
   ],
   imports: [
     BrowserModule,

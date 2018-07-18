@@ -1,3 +1,9 @@
-<p>
-  post works!
-</p>
+<div *ngIf="post" class="postdiv">
+  <h2>#{{post.id}} {{post.title | titlecase}}</h2>
+  <h3>{{post.body}}</h3>
+  <button class="btn" (click)="displayComments(post.id)"> {{btnValue}} </button>
+  <button class="btn" (click)="deletePost(post.id)"> Delete </button>
+  <div *ngFor="let itComm of post.comms">
+      <app-comm [comm]="itComm"></app-comm>
+  </div>
+</div>
