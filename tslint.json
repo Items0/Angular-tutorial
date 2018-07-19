@@ -1,8 +1,21 @@
 {
   "rulesDirectory": [
-    "node_modules/codelyzer"
+    "codelyzer",
+    "tslint-plugin-prettier"
   ],
+  "extends": "prettier",
   "rules": {
+    "prettier": [true, {
+      "tabWidth": 4,
+      "printWidth": 100,
+      "semi": true,
+      "trailingComma": "all",
+      "bracketSpacing": true,
+      "arrowParens": "avoid",
+      "singleQuote": true
+    }],
+    "await-promise": true,
+    "adjacent-overload-signatures": true,
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
@@ -18,6 +31,7 @@
     "forin": true,
     "import-blacklist": [
       true,
+      "rxjs",
       "rxjs/Rx"
     ],
     "import-spacing": true,
@@ -43,11 +57,14 @@
         ]
       }
     ],
+    "no-angle-bracket-type-assertion": true,
+    "no-any": true,
     "no-arg": true,
     "no-bitwise": true,
     "no-console": [
       true,
       "debug",
+      "log",
       "info",
       "time",
       "timeEnd",
@@ -63,8 +80,10 @@
       true,
       "ignore-params"
     ],
+    "no-internal-module": true,
     "no-misused-new": true,
-    "no-non-null-assertion": true,
+    "no-namespace": true,
+    "no-non-null-assertion": false,
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,
@@ -82,20 +101,29 @@
       "check-else",
       "check-whitespace"
     ],
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "import-sources-order": "lowercase-last",
+        "named-imports-order": "lowercase-first"
+      }
+    ],
     "prefer-const": true,
+    "prefer-for-of": true,
+    "prefer-method-signature": true,
+    "prefer-template": [true, "allow-single-concat"],
     "quotemark": [
       true,
       "single"
     ],
     "radix": true,
-    "semicolon": [
-      true,
-      "always"
-    ],
+    "semicolon": false,
     "triple-equals": [
       true,
       "allow-null-check"
     ],
+    "typedef": [true, "property-declaration", "call-signature"],
     "typedef-whitespace": [
       true,
       {
@@ -106,6 +134,7 @@
         "variable-declaration": "nospace"
       }
     ],
+    "typeof-compare": true,
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
@@ -115,6 +144,18 @@
       "check-operator",
       "check-separator",
       "check-type"
+    ],
+    "directive-selector": [
+      true,
+      "attribute",
+      "pk",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "pk",
+      "kebab-case"
     ],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,

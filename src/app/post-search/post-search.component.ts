@@ -3,16 +3,15 @@ import { FormControl } from '@angular/forms';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-post-search',
-  templateUrl: './post-search.component.html',
-  styleUrls: ['./post-search.component.css']
+    selector: 'app-post-search',
+    templateUrl: './post-search.component.html',
+    styleUrls: ['./post-search.component.css'],
 })
 export class PostSearchComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-    /*this.heroes$ = this.searchTerms.pipe(
+    ngOnInit(): void {
+        /*this.heroes$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
       debounceTime(300),
 
@@ -23,6 +22,5 @@ export class PostSearchComponent implements OnInit {
       switchMap((term: string) => this.heroService.searchHeroes(term)),
     );
 */
-  }
-
+    }
 }
