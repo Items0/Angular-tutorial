@@ -1,8 +1,17 @@
 <div *ngIf="post" class="postdiv">
-  <h2>#{{post.id}} {{post.title | titlecase}}</h2>
-  <h3>{{post.body}}</h3>
-  <button class="btn" (click)="displayComments(post.id)"> {{btnValue}} </button>
+  <div *ngIf="btnEditValue=='Edit'; else secondOption">
+      <h2>#{{post.id}} {{post.title | titlecase}}</h2>
+      <h3>{{post.body}}</h3>
+  </div>
+  <ng-template #secondOption> 
+    <input class="editTitleInput" [(ngModel)]="post.title" />
+    <input class="editBodyInput" [(ngModel)]="post.body" /> <br>
+  </ng-template>
+  
+  <button class="btn" (click)="displayComments(post.id)"> {{btnDisplayValue}} </button>
+  <button class="btn" (click)="editPost()"> {{btnEditValue}} </button>
   <button class="btn" (click)="deletePost(post.id)"> Delete </button>
+  
   <div *ngFor="let itComm of post.comms">
       <app-comm [comm]="itComm"></app-comm>
   </div>

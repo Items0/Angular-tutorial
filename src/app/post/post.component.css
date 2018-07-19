@@ -8,6 +8,7 @@
     border: none;
     min-width: 150px;
     margin-left: 20px;
+    margin-top: 8px;
 }
 
 .btn:hover {
@@ -16,7 +17,7 @@
 
 .postdiv {
     padding: 10px;
-    margin: 20px;
+    margin: 10px 20px 20px 20px;
     background: linear-gradient(to right, rgb(83, 219, 20) , rgb(130, 221, 103));
     border-radius: 15px;
     /*border: 2px solid rgb(109, 167, 30);*/
@@ -24,4 +25,16 @@
 
 .postdiv:hover {
     
+}
+
+.editTitleInput {
+    width: 70%;
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.editBodyInput {
+    width: 70%;
+    margin-bottom: 10px;
 }

@@ -20,6 +20,9 @@ import { PostComponent } from './post/post.component';
 import { CommComponent } from './comm/comm.component';
 import { PostSearchComponent } from './post-search/post-search.component';
 
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +40,7 @@ import { PostSearchComponent } from './post-search/post-search.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    InfiniteScrollModule,
     HttpClientModule/*,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
@@ -50,3 +54,5 @@ import { PostSearchComponent } from './post-search/post-search.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);

@@ -12,21 +12,23 @@ export class PostComponent implements OnInit {
   
   @Input() post: Post;
 
-  private btnValue : String;
+  private btnDisplayValue : String;
+  private btnEditValue : String;
   constructor(private jsonphService: JsonphService) { }
 
   ngOnInit() {
-    this.btnValue = "Show comments";
+    this.btnDisplayValue = "Show comments";
+    this.btnEditValue = 'Edit';
   }
 
   displayComments(postID: number) {
-    if (this.btnValue == "Show comments") {
+    if (this.btnDisplayValue == "Show comments") {
       this.jsonphService.getComms(postID)
         .subscribe(comms => this.post.comms = comms);
-      this.btnValue = "Hide comments";
+      this.btnDisplayValue = "Hide comments";
     } else {
       this.post.comms = [];
-      this.btnValue = "Show comments";
+      this.btnDisplayValue = "Show comments";
     }
   }
 
@@ -34,5 +36,19 @@ export class PostComponent implements OnInit {
     this.post = null;
     this.jsonphService.deletePost(postID).subscribe();
   }
+
+  editPost() {
+    if (this.btnEditValue == "Edit") {
+      this.btnEditValue = "Save";
+    } else {
+      this.btnEditValue = "Edit";
+      this.jsonphService.updatePost(this.post);
+    }
+  }
+
+  // save(): void {
+  //   this.jsonphService.updateHero(this.hero)
+  //     .subscribe(() => this.goBack());
+  // }
 
 }

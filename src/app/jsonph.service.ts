@@ -63,6 +63,34 @@ export class JsonphService {
   }
 
 
+  /** POST: add a new post to the server */
+  addPost (post: Post): Observable<Post> {
+    return this.http.post<Post>(this.jsonURL + "posts/", httpOptions).pipe(
+      tap((post: Post) => this.log(`added post w/ id=${post.id}`)),
+      catchError(this.handleError<Post>('addPost'))
+    );
+  }
+
+
+   /** PUT: update the post on the server */
+   updatePost (post: Post): Observable<any> {
+    //console.log(post.id + "\t" + post.title + "\t" + post.body);
+    return this.http.patch(this.jsonURL + "posts/" + post.id, post, httpOptions).pipe(
+      tap(_ => this.log(`updated post id=${post.id}`)),
+      catchError(this.handleError<any>('updatePost'))
+    );
+    
+  }
+
+  //  /** PUT: update the hero on the server */
+  //  updateHero (hero: Hero): Observable<any> {
+  //   return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
+  //     tap(_ => this.log(`updated hero id=${hero.id}`)),
+  //     catchError(this.handleError<any>('updateHero'))
+  //   );
+  // }
+
+
  /**
  * Handle Http operation that failed.
  * Let the app continue.

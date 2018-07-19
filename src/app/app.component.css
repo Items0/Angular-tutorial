@@ -31,3 +31,15 @@ nav a.active {
 :host {
   
 }
+
+/* html, body {
+  height: 100%;
+  width: 100%;
+  background-color: yellow;
+} */
+
+#postList {
+  height: 700px;
+  overflow-y: scroll;
+}
+
