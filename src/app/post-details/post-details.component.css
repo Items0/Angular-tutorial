@@ -16,7 +16,7 @@
     background-color: rgb(20, 243, 76);
 }
 
-.postdiv {
+.editdiv {
     padding: 10px;
     margin: 10px 20px 20px 20px;
     background: linear-gradient(to right, rgb(83, 219, 20) , rgb(130, 221, 103));
@@ -24,18 +24,16 @@
     /*border: 2px solid rgb(109, 167, 30);*/
 }
 
-.postdiv:hover {
-    
-}
 
-.editTitleInput {
+
+#editTitleInput {
     width: 70%;
     font-size: 1.2em;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.editBodyInput {
+#editBodyInput {
     width: 70%;
     margin-bottom: 10px;
 }

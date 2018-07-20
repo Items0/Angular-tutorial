@@ -15,7 +15,7 @@ export class PostComponent implements OnInit {
 
     private btnDisplayValue: String;
     private btnEditValue: String;
-    constructor(private jsonphService: JsonphService) {}
+    constructor(private jsonphService: JsonphService) { }
 
     ngOnInit(): void {
         this.btnDisplayValue = 'Show comments';
@@ -46,8 +46,7 @@ export class PostComponent implements OnInit {
         }
     }
 
-    // save(): void {
-    //   this.jsonphService.updateHero(this.hero)
-    //     .subscribe(() => this.goBack());
-    // }
+    save(): void {
+        this.jsonphService.updatePost(this.post);
+    }
 }

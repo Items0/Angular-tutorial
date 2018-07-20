@@ -1,30 +1,31 @@
-<h3>FORUM</h3>
-  <button class="btn" (click)="searchPostClick()"> Search post </button>
-  <button class="btn" (click)="addPostClick()"> Add post </button>
-  <div *ngIf="showSearch">
-    <div id="search-component">
-      <h4>Search post:</h4>
-      <input class="searchBox" #searchBox placeholder="Search text" (keyup)="search(searchBox.value)" required minlength="3" name="searchBox"/>
-      <div *ngIf="searchBox.invalid && (searchBox.dirty || searchBox.touched)" >
-        <div *ngIf="searchBox.errors.minlength">
-          Search value must be at least 3 characters long.
-        </div>
+<button class="btn" (click)="searchPostClick()"> Search post </button>
+<button class="btn" (click)="addPostClick()"> Add post </button>
+<div *ngIf="showSearch">
+  <div id="search-component">
+    <h4>Search post:</h4>
+    <input class="searchBox" #searchBox placeholder="Search text" (keyup)="search(searchBox.value)" required minlength="3" name="searchBox"
+    />
+    <div *ngIf="searchBox.invalid && (searchBox.dirty || searchBox.touched)">
+      <div *ngIf="searchBox.errors.minlength">
+        Search value must be at least 3 characters long.
       </div>
     </div>
   </div>
-  <div *ngIf="showAdd">
-    <label class="labelIn">Title:
-      <input #titleInput required minlength="5"/>
-    </label>
+</div>
+
+<div *ngIf="showAdd">
+  <label class="labelIn">Title:
+    <input #titleInput required minlength="5" />
+  </label>
   <label class="labelIn"> Body:
     <textarea #bodyInput rows="4" cols="100" required minlength="5"></textarea>
   </label>
-    <button class="btn" (click)="addPost(titleInput.value, bodyInput.value); titleInput.value=''; bodyInput.value=''">
-      Add
-    </button>
-  </div>
+  <button class="btn" (click)="addPost(titleInput.value, bodyInput.value); titleInput.value=''; bodyInput.value=''">
+    Add
+  </button>
+</div>
+<!-- </form> -->
 
-  <div *ngFor="let itPost of posts">
-    <app-post [post]="itPost"></app-post>
-  </div>
-  
+<div *ngFor="let itPost of posts">
+  <app-post [post]="itPost"></app-post>
+</div>

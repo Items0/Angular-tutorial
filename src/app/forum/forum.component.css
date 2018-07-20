@@ -1,29 +1,29 @@
 .labelIn {
-    display: block;
-    margin: 10px;
+  display: block;
+  margin: 10px;
 }
 
 .labelIn input {
-    width: 70%;
+  width: 70%;
 }
 
 .labelIn textarea {
-    width: 70%;
-    resize: none;
+  width: 70%;
+  resize: none;
 }
 
 .btn {
-    background-color: rgba(24, 187, 19, 0.664);
-    font-size: 16px;
-    padding: 5px;
-    color: white;
-    cursor: pointer;
-    border-radius: 30px;
-    border: none;
-    min-width: 150px;
-    margin-left: 20px;
+  background-color: rgba(24, 187, 19, 0.664);
+  font-size: 16px;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  min-width: 150px;
+  margin-left: 20px;
 }
 
 .btn:hover {
-    background-color: rgb(20, 243, 76);
+  background-color: rgb(20, 243, 76);
 }

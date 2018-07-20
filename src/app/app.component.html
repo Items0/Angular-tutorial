@@ -1,18 +1,12 @@
-
+<!-- <div [ngStyle]="{'background-color': '#e6e6e6'}"> -->
 <h1>{{title}}</h1>
 <nav>
   <a routerLink="/dashboard">Dashboard</a>
   <a routerLink="/heroes">Heroes</a>
   <a routerLink="/forum">Forum</a>
 </nav>
-<div id="postList" 
-  infiniteScroll
-  [infiniteScrollDistance]="1"
-  [infiniteScrollThrottle]="5"
-  (scrolled)="onScroll()"
-  [scrollWindow]="false">
-<router-outlet></router-outlet>
+<div id="postList" infiniteScroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="5" (scrolled)="onScroll()" [scrollWindow]="false">
+  <router-outlet></router-outlet>
 </div>
 <app-messages></app-messages>
-
-
+<!-- </div> -->

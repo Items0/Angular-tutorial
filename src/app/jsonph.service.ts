@@ -19,7 +19,7 @@ export class JsonphService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) {}
+  ) { }
 
   /** Log a JsonphService message with the MessageService */
   private log(message: string): void {
@@ -31,6 +31,15 @@ export class JsonphService {
     return this.http.get<Post[]>(this.jsonURL + "posts/").pipe(
       tap(posts => this.log("fetched posts")),
       catchError(this.handleError("getPosts", []))
+    );
+  }
+
+
+  /** GET post with ID from the server */
+  getPost(id: number): Observable<Post> {
+    return this.http.get<Post>(this.jsonURL + "posts/" + id).pipe(
+      tap(_ => this.log(`fetched post id=${id}`)),
+      catchError(this.handleError<Post>(`getPost id=${id}`)),
     );
   }
 

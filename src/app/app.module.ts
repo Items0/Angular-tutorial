@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -18,6 +19,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { MessagesComponent } from './messages/messages.component';
 import { PostSearchComponent } from './post-search/post-search.component';
 import { PostComponent } from './post/post.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 @NgModule({
     declarations: [
@@ -31,12 +33,14 @@ import { PostComponent } from './post/post.component';
         PostComponent,
         CommComponent,
         PostSearchComponent,
+        PostDetailsComponent,
     ],
     imports: [
         BrowserModule,
         FormsModule,
         AppRoutingModule,
         InfiniteScrollModule,
+        ReactiveFormsModule,
         HttpClientModule /*,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests

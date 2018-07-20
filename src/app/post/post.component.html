@@ -1,18 +1,23 @@
 <div *ngIf="post" class="postdiv">
   <div *ngIf="btnEditValue=='Edit'; else secondOption">
-      <h2>#{{post.id}} {{post.title | titlecase}}</h2>
-      <h3>{{post.body}}</h3>
+    <h2>#{{post.id}} {{post.title | titlecase}}</h2>
+    <h3>{{post.body}}</h3>
   </div>
-  <ng-template #secondOption> 
+  <ng-template #secondOption>
     <input class="editTitleInput" [(ngModel)]="post.title" />
-    <input class="editBodyInput" [(ngModel)]="post.body" /> <br>
+    <input class="editBodyInput" [(ngModel)]="post.body" />
+    <br>
   </ng-template>
-  
+
   <button class="btn" (click)="displayComments(post.id)"> {{btnDisplayValue}} </button>
-  <button class="btn" (click)="editPost()"> {{btnEditValue}} </button>
+
+  <a routerLink="/forum/post/{{post.id}}" (click)="editPost()">
+    <button class="btn">Edit</button>
+    <!-- <button class="btn" (click)="editPost()"> {{btnEditValue}} </button> -->
+  </a>
   <button class="btn" (click)="deletePost(post.id)"> Delete </button>
-  
+
   <div *ngFor="let itComm of post.comms">
-      <app-comm [comm]="itComm"></app-comm>
+    <app-comm [comm]="itComm"></app-comm>
   </div>
 </div>
