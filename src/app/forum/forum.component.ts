@@ -24,6 +24,8 @@ export class ForumComponent implements OnInit {
   showSearch = false;
   showAdd = false;
 
+  limit: number = 10;
+
   constructor(
     private jsonphService: JsonphService,
     private formBuilder: FormBuilder
@@ -45,8 +47,8 @@ export class ForumComponent implements OnInit {
   getPosts(): void {
     this.jsonphService
       .getPosts()
-      // .subscribe(posts => this.posts = posts.slice(1, 5));
-      .subscribe(posts => (this.posts = posts.slice(0, 10)));
+      //.subscribe(posts => (this.posts = posts.slice(0, 10)));
+      .subscribe(posts => (this.posts = posts));
 
   }
 

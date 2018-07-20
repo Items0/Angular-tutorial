@@ -25,6 +25,7 @@
   </button>
 </div>
 
-<div *ngFor="let itPost of (posts | myfilter: searchModel)">
+<button (click)="limit = limit + 10"> click me!</button>
+<div *ngFor="let itPost of (posts | myfilter: searchModel | slice:0:limit)">
   <app-post [post]="itPost"></app-post>
 </div>
