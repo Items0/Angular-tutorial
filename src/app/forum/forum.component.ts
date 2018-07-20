@@ -7,7 +7,7 @@ import { Observable, Subject } from "rxjs";
 import { Comm } from "../comm";
 import { JsonphService } from "../jsonph.service";
 import { Post } from "../post";
-
+import { MyfilterPipe } from "../myfilter.pipe";
 @Component({
   selector: "app-forum",
   templateUrl: "./forum.component.html",
@@ -23,10 +23,12 @@ export class ForumComponent implements OnInit {
 
   showSearch = false;
   showAdd = false;
+
   constructor(
     private jsonphService: JsonphService,
     private formBuilder: FormBuilder
   ) { }
+
 
   ngOnInit(): void {
     this.getPosts();
@@ -73,10 +75,11 @@ export class ForumComponent implements OnInit {
   }
 
   search(term: string): void {
-    this.getPosts();
-    this.posts = this.posts.filter(element => element.title.includes(term));
-    //this.posts = filteredElements;
-    console.log("term = " + term);
-    //console.log(this.postsCopy);
+    /*
+        this.posts = this.posts.filter(element => element.title.includes(term));
+        //this.posts = filteredElements;
+        console.log("term = " + term);
+        //console.log(this.postsCopy);
+        */
   }
 }

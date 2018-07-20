@@ -20,6 +20,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { PostSearchComponent } from './post-search/post-search.component';
 import { PostComponent } from './post/post.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
+import { MyfilterPipe } from './myfilter.pipe';
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { PostDetailsComponent } from './post-details/post-details.component';
         CommComponent,
         PostSearchComponent,
         PostDetailsComponent,
+        MyfilterPipe,
     ],
     imports: [
         BrowserModule,

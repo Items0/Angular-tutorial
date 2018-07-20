@@ -4,7 +4,7 @@
   <div id="search-component">
     <h4>Search post:</h4>
     <input class="searchBox" #searchBox placeholder="Search text" (keyup)="search(searchBox.value)" required minlength="3" name="searchBox"
-    />
+      [(ngModel)]="searchModel" />
     <div *ngIf="searchBox.invalid && (searchBox.dirty || searchBox.touched)">
       <div *ngIf="searchBox.errors.minlength">
         Search value must be at least 3 characters long.
@@ -24,8 +24,7 @@
     Add
   </button>
 </div>
-<!-- </form> -->
 
-<div *ngFor="let itPost of posts">
+<div *ngFor="let itPost of (posts | myfilter: searchModel)">
   <app-post [post]="itPost"></app-post>
 </div>
