@@ -5,8 +5,6 @@
   <a routerLink="/heroes">Heroes</a>
   <a routerLink="/forum">Forum</a>
 </nav>
-<div id="postList" infiniteScroll [infiniteScrollDistance]="3" [infiniteScrollThrottle]="300" (scrolled)="onScroll()" [scrollWindow]="false">
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>
 <app-messages></app-messages>
 <!-- </div> -->

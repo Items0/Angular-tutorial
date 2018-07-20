@@ -25,7 +25,7 @@
 }
 
 .postdiv:hover {
-    
+    opacity: 0.85;
 }
 
 .editTitleInput {

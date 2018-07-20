@@ -23,7 +23,6 @@ export class PostDetailsComponent implements OnInit {
 
   save(): void {
     this.jsonphService.updatePost(this.post).subscribe();
-
   }
 
   goBack(): void {

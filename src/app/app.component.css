@@ -35,7 +35,4 @@ nav a.active {
   background-color: yellow;
 } */
 
-#postList {
-  height: 700px;
-  overflow-y: scroll;
-}
+

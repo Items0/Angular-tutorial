@@ -27,3 +27,9 @@
 .btn:hover {
   background-color: rgb(20, 243, 76);
 }
+
+#postList {
+  margin-top: 10px;
+  height: 700px;
+  overflow-y: scroll;
+}

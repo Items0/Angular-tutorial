@@ -25,7 +25,11 @@
   </button>
 </div>
 
-<button (click)="limit = limit + 10"> click me!</button>
-<div *ngFor="let itPost of (posts | myfilter: searchModel | slice:0:limit)">
-  <app-post [post]="itPost"></app-post>
+
+<div id="postList" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="limit = limit + 10"
+  [scrollWindow]="false">
+  <div *ngFor="let itPost of (posts | myfilter: searchModel | slice:0:limit)">
+    <app-post [post]="itPost"></app-post>
+  </div>
 </div>
+<!-- <button (click)="limit = limit + 10"> click me!</button> [scrollWindow]="false" -->

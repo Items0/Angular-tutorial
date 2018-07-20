@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-// import { Post } from './post'
 
 @Pipe({
   name: 'myfilter',
@@ -15,4 +14,5 @@ export class MyfilterPipe implements PipeTransform {
     console.log("Pipe filter mode");
     return items.filter(element => element.title.includes(filter));
   }
+
 }
