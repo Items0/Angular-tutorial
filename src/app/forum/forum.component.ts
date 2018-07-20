@@ -17,9 +17,8 @@ export class ForumComponent implements OnInit {
   posts: Post[] = [];
   postsCopy: Post[] = [];
   registerForm: FormGroup;
+  searchForm: FormGroup;
   submitted = false;
-
-  private searchTerms = new Subject<string>();
 
   showSearch = false;
   showAdd = false;
@@ -35,13 +34,14 @@ export class ForumComponent implements OnInit {
   ngOnInit(): void {
     this.getPosts();
     this.registerForm = this.formBuilder.group({
-      titleV: ["", [Validators.required, Validators.minLength(6)]],
-      bodyV: ["", [Validators.required, Validators.minLength(6)]]
+      titleV: ["", [Validators.required, Validators.minLength(5)]],
+      bodyV: ["", [Validators.required, Validators.minLength(15)]]
     });
-  }
 
-  get f() {
-    return this.registerForm.controls;
+    this.searchForm = this.formBuilder.group({
+      searchV: ["", Validators.minLength(3)]
+    });
+
   }
 
   getPosts(): void {
@@ -55,9 +55,9 @@ export class ForumComponent implements OnInit {
   addPost(title: string, body: string): void {
     // this.submitted = true;
     // stop here if form is invalid
-    // if (this.registerForm.invalid) {
-    //   return;
-    // }
+    if (this.registerForm.invalid) {
+      return;
+    }
     const newPost = new Post();
     newPost.title = title;
     newPost.body = body;

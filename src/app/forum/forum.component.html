@@ -3,26 +3,44 @@
 <div *ngIf="showSearch">
   <div id="search-component">
     <h4>Search post:</h4>
-    <input class="searchBox" #searchBox placeholder="Search text" (keyup)="search(searchBox.value)" required minlength="3" name="searchBox"
-      [(ngModel)]="searchModel" />
-    <div *ngIf="searchBox.invalid && (searchBox.dirty || searchBox.touched)">
-      <div *ngIf="searchBox.errors.minlength">
-        Search value must be at least 3 characters long.
-      </div>
+    <form novalidate [formGroup]="searchForm">
+      <input class="searchBox" #searchBox placeholder="Search text" formControlName="searchV" [(ngModel)]="searchModel" />
+    </form>
+
+
+    <div class="error" *ngIf="searchForm.get('searchV').hasError('required') && searchForm.get('searchV').invalid">
+      Search text is required!
+    </div>
+    <div class="error" *ngIf="searchForm.get('searchV').hasError('minlength') && searchForm.get('searchV').invalid">
+      Minimum of 3 characters
     </div>
   </div>
 </div>
 
 <div *ngIf="showAdd">
-  <label class="labelIn">Title:
-    <input #titleInput required minlength="5" />
-  </label>
-  <label class="labelIn"> Body:
-    <textarea #bodyInput rows="4" cols="100" required minlength="5"></textarea>
-  </label>
-  <button class="btn" (click)="addPost(titleInput.value, bodyInput.value); titleInput.value=''; bodyInput.value=''">
-    Add
-  </button>
+  <form novalidate [formGroup]="registerForm">
+    <label class="labelIn">Title:
+      <input #titleInput formControlName="titleV" />
+      <div class="error" *ngIf="registerForm.get('titleV').hasError('required') && registerForm.get('titleV').touched">
+        Title is required!
+      </div>
+      <div class="error" *ngIf="registerForm.get('titleV').hasError('minlength') && registerForm.get('titleV').touched">
+        Minimum of 5 characters
+      </div>
+    </label>
+    <label class="labelIn"> Body:
+      <textarea #bodyInput rows="4" cols="100" formControlName="bodyV"></textarea>
+      <div class="error" *ngIf="registerForm.get('bodyV').hasError('required') && registerForm.get('bodyV').touched">
+        Body can't be empty!
+      </div>
+      <div class="error" *ngIf="registerForm.get('bodyV').hasError('minlength') && registerForm.get('bodyV').touched">
+        Minimum of 15 characters
+      </div>
+    </label>
+    <button class="btn" (click)="addPost(titleInput.value, bodyInput.value); titleInput.value=''; bodyInput.value=''">
+      Add
+    </button>
+  </form>
 </div>
 
 

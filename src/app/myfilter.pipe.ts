@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class MyfilterPipe implements PipeTransform {
 
   transform(items: any[], filter: Object): any {
-    if (!items || !filter) {
+    if (!items || !filter || filter.toString().length < 3) {
       return items;
     }
     console.log("Pipe filter mode");
