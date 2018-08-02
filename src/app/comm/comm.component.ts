@@ -6,14 +6,14 @@ import { JsonphService } from '../jsonph.service';
 @Component({
     selector: 'app-comm',
     templateUrl: './comm.component.html',
-    styleUrls: ['./comm.component.css'],
+    styleUrls: ['./comm.component.scss'],
 })
 export class CommComponent implements OnInit {
     @Input() comm: Comm;
 
-    constructor(private jsonphService: JsonphService) {}
+    constructor(private jsonphService: JsonphService) { }
 
-    ngOnInit(): void {}
+    ngOnInit(): void { }
 
     deleteComm(commID: number): void {
         this.comm = null;

@@ -1,0 +1,45 @@
+// .labelIn {
+//   display: block;
+//   margin: 10px;
+// }
+
+// .labelIn input {
+//   width: 70%;
+// }
+
+// .labelIn textarea {
+//   width: 70%;
+//   resize: none;
+// }
+
+.form-control {
+  width: 50%;
+  float: none;
+  display: inline-block;
+}
+.btn {
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  min-width: 150px;
+}
+// .btn {
+//   // background-color: rgba(24, 187, 19, 0.664);
+//   font-size: 16px;
+//   padding: 5px;
+//   color: white;
+//   cursor: pointer;
+//   border-radius: 30px;
+//   border: none;
+//   min-width: 150px;
+//   margin-left: 20px;
+// }
+
+// .btn:hover {
+//   background-color: rgb(20, 243, 76);
+// }
+
+#postList {
+  height: 700px;
+  overflow-y: scroll;
+}

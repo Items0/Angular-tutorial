@@ -1,13 +1,12 @@
-<button class="btn" (click)="searchPostClick()"> Search post </button>
-<button class="btn" (click)="addPostClick()"> Add post </button>
+<button type="button" class="btn btn-primary" (click)="searchPostClick()"> Search post </button>
+<button type="button" class="btn btn-primary" (click)="addPostClick()"> Add post </button>
 <div *ngIf="showSearch">
   <div id="search-component">
-    <h4>Search post:</h4>
     <form novalidate [formGroup]="searchForm">
-      <input class="searchBox" #searchBox placeholder="Search text" formControlName="searchV" [(ngModel)]="searchModel" />
+      <input class="form-control mr-sm-2" type="text" #searchBox placeholder="Search text" formControlName="searchV" [(ngModel)]="searchModel"
+      />
+      <button type="button" class="btn btn-primary" (click)="this.searchForm.reset()">Reset</button>
     </form>
-
-
     <div class="error" *ngIf="searchForm.get('searchV').hasError('required') && searchForm.get('searchV').invalid">
       Search text is required!
     </div>
@@ -20,7 +19,7 @@
 <div *ngIf="showAdd">
   <form novalidate [formGroup]="registerForm">
     <label class="labelIn">Title:
-      <input #titleInput formControlName="titleV" />
+      <input class="form-control mr-sm-2" type="text" #titleInput formControlName="titleV" />
       <div class="error" *ngIf="registerForm.get('titleV').hasError('required') && registerForm.get('titleV').touched">
         Title is required!
       </div>
@@ -29,7 +28,7 @@
       </div>
     </label>
     <label class="labelIn"> Body:
-      <textarea #bodyInput rows="4" cols="100" formControlName="bodyV"></textarea>
+      <textarea class="form-control" #bodyInput rows="4" cols="100" formControlName="bodyV"></textarea>
       <div class="error" *ngIf="registerForm.get('bodyV').hasError('required') && registerForm.get('bodyV').touched">
         Body can't be empty!
       </div>
@@ -37,7 +36,7 @@
         Minimum of 15 characters
       </div>
     </label>
-    <button class="btn" (click)="addPost(titleInput.value, bodyInput.value); titleInput.value=''; bodyInput.value=''">
+    <button class="btn btn-primary" type="button" (click)="addPost(titleInput.value, bodyInput.value); titleInput.value=''; bodyInput.value=''">
       Add
     </button>
   </form>
@@ -50,4 +49,3 @@
     <app-post [post]="itPost"></app-post>
   </div>
 </div>
-<!-- <button (click)="limit = limit + 10"> click me!</button> [scrollWindow]="false" -->

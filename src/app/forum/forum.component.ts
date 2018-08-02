@@ -11,14 +11,13 @@ import { MyfilterPipe } from "../myfilter.pipe";
 @Component({
   selector: "app-forum",
   templateUrl: "./forum.component.html",
-  styleUrls: ["./forum.component.css"]
+  styleUrls: ["./forum.component.scss"]
 })
 export class ForumComponent implements OnInit {
   posts: Post[] = [];
   postsCopy: Post[] = [];
   registerForm: FormGroup;
   searchForm: FormGroup;
-  submitted = false;
 
   showSearch = false;
   showAdd = false;
@@ -47,13 +46,11 @@ export class ForumComponent implements OnInit {
   getPosts(): void {
     this.jsonphService
       .getPosts()
-      //.subscribe(posts => (this.posts = posts.slice(0, 10)));
       .subscribe(posts => (this.posts = posts));
 
   }
 
   addPost(title: string, body: string): void {
-    // this.submitted = true;
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
@@ -70,10 +67,12 @@ export class ForumComponent implements OnInit {
 
   searchPostClick(): void {
     this.showSearch = !this.showSearch;
+    this.showAdd = false;
   }
 
   addPostClick(): void {
     this.showAdd = !this.showAdd;
+    this.showSearch = false;
   }
 
   search(term: string): void {

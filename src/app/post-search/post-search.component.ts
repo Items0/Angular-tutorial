@@ -5,10 +5,10 @@ import { switchMap } from 'rxjs/operators';
 @Component({
     selector: 'app-post-search',
     templateUrl: './post-search.component.html',
-    styleUrls: ['./post-search.component.css'],
+    styleUrls: ['./post-search.component.scss'],
 })
 export class PostSearchComponent implements OnInit {
-    constructor() {}
+    constructor() { }
 
     ngOnInit(): void {
         /*this.heroes$ = this.searchTerms.pipe(
