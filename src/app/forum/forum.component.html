@@ -1,47 +1,44 @@
-<button type="button" class="btn btn-primary" (click)="searchPostClick()"> Search post </button>
-<button type="button" class="btn btn-primary" (click)="addPostClick()"> Add post </button>
-<div *ngIf="showSearch">
-  <div id="search-component">
+<div class="top">
+  <button type="button" class="btn btn-primary" (click)="searchPostClick()"> Search post </button>
+  <button type="button" class="btn btn-primary" (click)="addPostClick()"> Add post </button>
+
+  <div *ngIf="showSearch" id="search-component">
     <form novalidate [formGroup]="searchForm">
+      <div class="error" *ngIf="searchForm.get('searchV').hasError('required') && searchForm.get('searchV').invalid">
+        Search text is required!
+      </div>
+      <div class="error" *ngIf="searchForm.get('searchV').hasError('minlength') && searchForm.get('searchV').invalid">
+        Minimum of 3 characters
+      </div>
       <input class="form-control mr-sm-2" type="text" #searchBox placeholder="Search text" formControlName="searchV" [(ngModel)]="searchModel"
       />
       <button type="button" class="btn btn-primary" (click)="this.searchForm.reset()">Reset</button>
     </form>
-    <div class="error" *ngIf="searchForm.get('searchV').hasError('required') && searchForm.get('searchV').invalid">
-      Search text is required!
-    </div>
-    <div class="error" *ngIf="searchForm.get('searchV').hasError('minlength') && searchForm.get('searchV').invalid">
-      Minimum of 3 characters
-    </div>
   </div>
-</div>
 
-<div *ngIf="showAdd">
-  <form novalidate [formGroup]="registerForm">
-    <label class="labelIn">Title:
-      <input class="form-control mr-sm-2" type="text" #titleInput formControlName="titleV" />
+  <div *ngIf="showAdd" id="add-component">
+    <form novalidate [formGroup]="registerForm">
       <div class="error" *ngIf="registerForm.get('titleV').hasError('required') && registerForm.get('titleV').touched">
         Title is required!
       </div>
       <div class="error" *ngIf="registerForm.get('titleV').hasError('minlength') && registerForm.get('titleV').touched">
         Minimum of 5 characters
       </div>
-    </label>
-    <label class="labelIn"> Body:
-      <textarea class="form-control" #bodyInput rows="4" cols="100" formControlName="bodyV"></textarea>
+      <input class="form-control mr-sm-2" type="text" #titleInput formControlName="titleV" placeholder="Title" />
+      <button class="btn btn-primary" type="button" (click)="addPost(titleInput.value, bodyInput.value); titleInput.value=''; bodyInput.value=''">
+        Add
+      </button>
+
       <div class="error" *ngIf="registerForm.get('bodyV').hasError('required') && registerForm.get('bodyV').touched">
         Body can't be empty!
       </div>
       <div class="error" *ngIf="registerForm.get('bodyV').hasError('minlength') && registerForm.get('bodyV').touched">
         Minimum of 15 characters
       </div>
-    </label>
-    <button class="btn btn-primary" type="button" (click)="addPost(titleInput.value, bodyInput.value); titleInput.value=''; bodyInput.value=''">
-      Add
-    </button>
-  </form>
+      <textarea class="form-control" #bodyInput rows="4" cols="100" formControlName="bodyV" placeholder="Body"></textarea>
+    </form>
+  </div>
 </div>
-
 
 <div id="postList" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="500" (scrolled)="limit = limit + 10"
   [scrollWindow]="false">

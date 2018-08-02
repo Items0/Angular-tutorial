@@ -1,19 +1,11 @@
-<div class=".aqua-gradient" *ngIf="post" class="postdiv">
-  <div *ngIf="btnEditValue=='Edit'; else secondOption">
-    <h2>#{{post.id}} {{post.title | titlecase}}</h2>
-    <h3>{{post.body}}</h3>
-  </div>
-  <ng-template #secondOption>
-    <input class="editTitleInput" [(ngModel)]="post.title" />
-    <input class="editBodyInput" [(ngModel)]="post.body" />
-    <br>
-  </ng-template>
+<div *ngIf="post" class="postdiv">
+  <h2>#{{post.id}} {{post.title | titlecase}}</h2>
+  <h3>{{post.body}}</h3>
 
   <button class="btn btn-primary" type="button" (click)="displayComments(post.id)"> {{btnDisplayValue}} </button>
 
-  <a routerLink="/forum/post/{{post.id}}" (click)="editPost()">
+  <a routerLink="/forum/post/{{post.id}}">
     <button class="btn btn-primary" type="button">Edit</button>
-    <!-- <button class="btn" (click)="editPost()"> {{btnEditValue}} </button> -->
   </a>
   <button class="btn btn-primary" type="button" (click)="deletePost(post.id)"> Delete </button>
 

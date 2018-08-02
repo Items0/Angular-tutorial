@@ -1,7 +1,0 @@
-<div id="search-component">
-    <h4>Search post:</h4>
-    <input #searchBox placeholder="Search text" (keyup)="search(searchBox.value)"  required minlength="3"/>
-    <div *ngIf="searchBox.errors.minlength">
-      Search value must be at least 3 characters long.
-    </div>
-  </div>

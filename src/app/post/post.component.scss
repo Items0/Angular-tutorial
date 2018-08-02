@@ -7,19 +7,11 @@
 .postdiv {
     padding: 10px;
     margin: 20px 0px 20px 0px;
-    border: solid black 4px;
+    border: solid black 2px;
     border-radius: 15px;
+    background-color:rgba(59, 80, 90, 0.3)
 }
 
-
-.editTitleInput {
-    width: 70%;
-    font-size: 1.2em;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.editBodyInput {
-    width: 70%;
-    margin-bottom: 10px;
+.postdiv:first-child {
+    margin-top: 0px;
 }

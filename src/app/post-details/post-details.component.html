@@ -2,13 +2,8 @@
   <h2>#{{post.id}}</h2>
   <h3>{{post.title}}</h3>
   <h2>{{post.body}}</h2>
-  <div>
-    <input id="editTitleInput" [(ngModel)]="post.title">
-  </div>
-
-  <div>
-    <textarea id="editBodyInput" [(ngModel)]="post.body" rows="4" cols="100"> </textarea>
-  </div>
-  <button class="btn" (click)="goBack()">Go back</button>
-  <button class="btn" (click)="save()">Save</button>
+  <input class="form-control" [(ngModel)]="post.title ">
+  <textarea class="form-control" [(ngModel)]="post.body " rows="4 " cols="100 "> </textarea>
+  <button class="btn btn-primary " (click)="goBack() ">Go back</button>
+  <button class="btn btn-primary " (click)="save() ">Save</button>
 </div>

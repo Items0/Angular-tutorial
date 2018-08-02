@@ -14,6 +14,7 @@ const httpOptions = {
 @Injectable({
   providedIn: "root"
 })
+
 export class JsonphService {
   private jsonURL = "https://jsonplaceholder.typicode.com/";
   constructor(
@@ -87,20 +88,12 @@ export class JsonphService {
   updatePost(post: Post): Observable<any> {
     // console.log(post.id + "\t" + post.title + "\t" + post.body);
     return this.http
-      .patch(this.jsonURL + "posts/" + post.id, post, httpOptions)
+      .put(this.jsonURL + "posts/" + post.id, post, httpOptions)
       .pipe(
         tap(_ => this.log(`updated post id=${post.id}`)),
         catchError(this.handleError<any>("updatePost"))
       );
   }
-
-  //  /** PUT: update the hero on the server */
-  //  updateHero (hero: Hero): Observable<any> {
-  //   return this.http.put(this.heroesUrl, hero, httpOptions).pipe(
-  //     tap(_ => this.log(`updated hero id=${hero.id}`)),
-  //     catchError(this.handleError<any>('updateHero'))
-  //   );
-  // }
 
   /**
    * Handle Http operation that failed.
